@@ -1,0 +1,11 @@
+attrs==22.2.0
+colorama==0.4.6
+flaky==3.7.0
+iniconfig==2.0.0
+packaging==23.0
+pluggy==1.0.0
+PyBluez @ git+https://github.com/pybluez/pybluez.git@4d46ce14d9e888e3b0c65d5d3ba2a703f8e5e861
+pyserial==3.5
+pytest==7.2.1
+PyYAML==6.0
+RPi.GPIO==0.7.1
