@@ -10,9 +10,9 @@ pipeline {
     agent {
         dockerfile {
             additionalBuildArgs '''\
-                --build-arg GID=$JENKINS_GROUP_ID \
-                --build-arg UID=$JENKINS_USER_ID \
-                --build-arg UNAME=$JENKINS_USER_NAME \
+                --build-arg GID=${id -g} \
+                --build-arg UID=${id -u} \
+                --build-arg UNAME=${id -un} \
             '''
         }
     }
