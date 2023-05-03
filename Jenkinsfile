@@ -18,5 +18,13 @@ pipeline {
                 sh 'python test.py'
             }
         }
+
+        stage('Build source') {
+            steps {
+                sh 'cmake -B build -S project'
+                sh 'cmake --build build -j8'
+                sh 'build/a.out'
+            }
+        }
     }
 }
