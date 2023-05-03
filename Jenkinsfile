@@ -10,9 +10,9 @@ pipeline {
     agent {
         dockerfile {
             additionalBuildArgs '''\
-                --build-arg GID=${id -g} \
-                --build-arg UID=${id -u} \
-                --build-arg UNAME=${id -un} \
+                --build-arg GID=`id -g` \
+                --build-arg UID=`id -u` \
+                --build-arg UNAME=`id -un` \
             '''
         }
     }
