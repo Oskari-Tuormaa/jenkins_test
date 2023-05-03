@@ -1,11 +1,19 @@
 FROM python:3.10
 
+ARG GID
+ARG UID
+ARG UNAME
+
+ENV GROUP_ID=$GID
+ENV USER_ID=$UID
+ENV USERNAME=$UNAME
+
 # Create jenkins user
-RUN mkdir /home/jenkins
-COPY . /home/jenkins
-RUN groupadd -g 124 jenkins
-RUN useradd -r -u 124 -g jenkins -d /home/jenkins jenkins
-RUN chown -R jenkins:jenkins /home/jenkins
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-USER jenkins
-WORKDIR /home/jenkins
+RUN mkdir /home/$USERNAME
+COPY . /home/$USERNAME
+RUN groupadd -g $GROUP_ID $USERNAME
+RUN useradd -r -u $USER_ID -g $USERNAME -d /home/$USERNAME $USERNAME
+RUN chown -R $USERNAME:$USERNAME /home/$USERNAME
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
