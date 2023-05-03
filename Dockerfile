@@ -8,6 +8,9 @@ ENV GROUP_ID=$GID
 ENV USER_ID=$UID
 ENV USERNAME=$UNAME
 
+RUN apt update
+RUN apt install -y cmake
+
 # Create jenkins user
 RUN mkdir /home/$USERNAME
 COPY . /home/$USERNAME
