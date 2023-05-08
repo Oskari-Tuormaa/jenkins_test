@@ -1,0 +1,5 @@
+
+project/.cache/clangd/index
+project/build
+test-project/target
+test-project/Cargo.lock
