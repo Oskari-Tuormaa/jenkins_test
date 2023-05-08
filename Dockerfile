@@ -4,19 +4,15 @@ ARG GID
 ARG UID
 ARG UNAME
 
-ENV GROUP_ID=$GID
-ENV USER_ID=$UID
-ENV USERNAME=$UNAME
-
 RUN apt update
 RUN apt install -y cmake
 
 # Create jenkins user
-RUN mkdir /home/$USERNAME
-COPY . /home/$USERNAME
-RUN groupadd -g $GROUP_ID $USERNAME
-RUN useradd -r -u $USER_ID -g $USERNAME -d /home/$USERNAME $USERNAME
-RUN chown -R $USERNAME:$USERNAME /home/$USERNAME
+RUN mkdir /home/$UNAME
+COPY . /home/$UNAME
+RUN groupadd -g $GID $UNAME
+RUN useradd -r -u $UID -g $UNAME -d /home/$UNAME $UNAME
+RUN chown -R $UNAME:$UNAME /home/$UNAME
 
-USER $USERNAME
-WORKDIR /home/$USERNAME
+USER $UNAME
+WORKDIR /home/$UNAME
