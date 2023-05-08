@@ -7,3 +7,8 @@ void Test::print_something() {
 void Test::a_new_method(int a) {
     std::cout << "Here is a number: " << a << std::endl;
 }
+
+void Test::a_virtual_method()
+{
+    std::cout << "Hello from virtual method!" << std::endl;
+}
